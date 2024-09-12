@@ -100,28 +100,9 @@
 <div class="gradationBorder"></div>
 
 <section class="topInformation">
-    <?php 
-    $args = array(
-        'post_type' => 'post', 
-        'posts_per_page' => 3, 
-    ); 
-    $the_query = new WP_Query($args); 
-
-    if($the_query->have_posts()) : ?>
-        <div class="topInformation__wrapper">
-            <h2 class="topSectionTitle">お知らせ</h2>
-            <ul class="informationList">
-            <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
-                <li class="informationList__item">
-                    <a href="<?php the_permalink(); ?>" class="informationList__itemLink">
-                        <p class="informationList__itemDate"><?php echo get_the_date('Y.m.d'); ?></p>
-                        <p class="informationList__itemText" ><?php the_title(); ?></p>
-                    </a> 
-                </li>
-            <?php endwhile; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
+    <div class="topInformation__wrapper">
+        <h2 class="topSectionTitle">お知らせ</h2>
+    </div>
     <a href="" class="informationButton">お知らせ一覧</a>
 </section>
 </main>
