@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+<link rel="stylesheet" href="./assets/css/front-page.css" type="text/css">
+<link rel="stylesheet" href="./assets/css/main-visual.css" type="text/css">
+<script src="./assets/js/mainvisual/main.js"></script>
+
+<section class="mainvisual">
+    <custom-gradient id="js-mainvisual__backGradient" class="mainvisual__gradient"></custom-gradient>
+    <custom-wind id="js-mainvisual__wind" class="mainvisual__wind"></custom-wind>
+    <custom-wave id="js-mainvisual__upFrontWave" class="mainvisual__wave"></custom-wave>
+    <custom-wave id="js-mainvisual__upBackWave" class="mainvisual__wave"></custom-wave>
+    <custom-ring id="js-mainvisual__upLargeRing" class="mainvisual__ring"></custom-ring>
+    <custom-ring id="js-mainvisual__upMediumRing" class="mainvisual__ring"></custom-ring>
+    <custom-ring id="js-mainvisual__upSmallRing" class="mainvisual__ring"></custom-ring>
+    <div class="mainvisualOthers">
+        <img class = "mainvisual__text" src ="./assets/images/mainvisual/mv_title.svg" alt="未来の健康をつむぐ、「信頼」と「安心」。" loading="lazy">
+        <div class = "mainvisual__scroll">
+            <span class = "mainvisual__scrollText">scroll</span>
+            <span class = "mainvisual__scrollUI"></span>
+        </div>
+    </div>
+</section>
+
+<section class="topStory">
+    <custom-wave id="js-mainvisual__downFrontWave" class="topStory__wave"></custom-wave>
+    <custom-wave id="js-mainvisual__downBackWave"class="topStory__wave"></custom-wave>
+    <custom-ring id="js-mainvisual__downLargeRing"class="topStory__ring"></custom-ring>
+    <custom-ring id="js-mainvisual__downMediumRing"class="topStory__ring"></custom-ring>
+    <custom-ring id="js-mainvisual__downSmallRing"class="topStory__ring"></custom-ring>
+    <div class = "topStory__wrapper">
+        <div class="topStory__images">
+            <div class="topStory__primaryImageWrapper">
+                <img src="./assets/images/top/bg_high-five_01.png" alt="" loading="lazy" class="topStory__primaryImage">
+            </div>
+            <div class="topStory__secondaryImageWrapper">
+                <img src="./assets/images/top/bg_hold-hands_02.png" alt="" loading="lazy" class="topStory__secondaryImage">
+            </div>
+        </div>
+        <div class="topStory__contents">
+            <h2 class="topStory__contentsTitle">
+                治験依頼者と<br>
+                医療機関を結ぶ架け橋
+            </h2>
+            <div class="topStory__contentsText">
+                <p class="topStory_contentsText --first">
+                    株式会社東北薬理研は、<br>
+                    設立より20年超、地域密着型の<br>
+                    SMO (Site Management Organization :<br>
+                    治験施設支援機関) として、<br>
+                    明日の医療を担う医薬品開発を<br>
+                    医療機関様のパートナーとして<br>
+                    支援してまいりました。
+                </p>
+                <p class="topStory__contents --second"> 
+                    現在は東京オフィスも構え、<br>
+                    提携医療機関のネットワークを<br>
+                    拡大しております。<br>
+                    今後も、科学と倫理の両面から<br>
+                    多くの治験実施医療機関を<br>
+                    支援してまいります。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="gradationBorder"></div>
+
+<div class="topBackgroundWrapper">
+    <section class="topContent">
+        <h2 class="topSectionTitle">コンテンツ</h2>
+        <div class="topContent__wrapper">
+            <a href="" class="topContent__link">
+                <img src="./assets/images/top/image_medical.png" alt="" loading="lazy" class="topContent__linkImage">
+                <p class="topContent__linkText">医療関係者の方へ</p>
+            </a>
+            <a href="" class="topContent__link">
+                <img src="./assets/images/top/image_partner.png" alt="" loading="lazy" class="topContent__linkImage">
+                <p class="topContent__linkText">治験依頼者の方へ</p>
+            </a>
+        </div>
+    </section>
+    <section class="topAchivement">
+        <h2 class="topSectionTitle">治験実績</h2>
+        <div class="topAchivement__wrapper">
+            <img src="./assets/images/top/figure_number-of-contracts_01.png" alt="試験別契約数のグラフ" loading="lazy" class="topAchivement__image">
+            <img src="./assets/images/top/figure_number-of-contracts_02.png" alt="提携医療機関（臨床数別）のグラフ" loading="lazy" class="topAchivement__image">
+            <img src="./assets/images/top/figure_number-of-contracts_03.png" alt="提携医療機関（都道府県別）のグラフ" loading="lazy" class="topAchivement__image">
+        </div>
+    </section>
+</div>
+
+<div class="gradationBorder"></div>
+
+<section class="topInformation">
+    <?php 
+    $args = array(
+        'post_type' => 'post', 
+        'posts_per_page' => 3, 
+    ); 
+    $the_query = new WP_Query($args); 
+
+    if($the_query->have_posts()) : ?>
+        <div class="topInformation__wrapper">
+            <h2 class="topSectionTitle">お知らせ</h2>
+            <ul class="informationList">
+            <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
+                <li class="informationList__item">
+                    <a href="<?php the_permalink(); ?>" class="informationList__itemLink">
+                        <p class="informationList__itemDate"><?php echo get_the_date('Y.m.d'); ?></p>
+                        <p class="informationList__itemText" ><?php the_title(); ?></p>
+                    </a> 
+                </li>
+            <?php endwhile; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+    <a href="" class="informationButton">お知らせ一覧</a>
+</section>
+</main>
+</body>
+</html>

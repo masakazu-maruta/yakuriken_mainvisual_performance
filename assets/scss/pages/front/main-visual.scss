@@ -1,0 +1,147 @@
+@use "../../_index" as *;
+@use "../../layout/_common";
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap";
+
+main {
+  overflow-x: hidden;
+}
+.mainvisual {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  .mainvisualOthers {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 4vw 15vh 0;
+    column-gap: 28px;
+    .mainvisual__text {
+      width: 40vw;
+    }
+    .mainvisual__scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 12px;
+      .mainvisual__scrollText {
+        color: $main;
+        font-size: 10px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        writing-mode: vertical-lr;
+      }
+
+      .mainvisual__scrollUI {
+        display: block;
+        position: relative;
+        width: 1px;
+        height: 90px;
+        &::before {
+          position: absolute;
+          bottom: 0;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: $main;
+          transform: translateX(-50%);
+          animation: circlemove 2.4s linear infinite, cirlemovehide 2.4s ease-out infinite;
+          content: "";
+        }
+        &::after {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background: $main;
+          transform: translateX(-50%);
+          content: "";
+        }
+      }
+    }
+  }
+  .mainvisual__ring {
+    z-index: -10;
+  }
+  .mainvisual__wind {
+    z-index: -20;
+  }
+  .mainvisual__wave {
+    z-index: -30;
+  }
+  .mainvisual__gradient {
+    z-index: -40;
+  }
+}
+
+.mainvisualDown {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  .mainvisualDown__ralative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (width < 1140px) {
+  .mainvisual {
+    .mainvisualOthers {
+      padding: 0 4vw 15vh 0;
+      .mainvisual__text {
+        width: 60vw;
+      }
+    }
+  }
+}
+
+@media screen and (width < 768px) {
+  .mainvisual {
+    .mainvisualOthers {
+      .mainvisual__text {
+        position: absolute;
+        right: 32px;
+        bottom: 22vh;
+      }
+      .mainvisual__scroll {
+        position: absolute;
+        right: 8px;
+        bottom: 15vh;
+      }
+    }
+  }
+}
+
+@keyframes circlemove {
+  0% {
+    bottom: 100%;
+  }
+  25% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes cirlemovehide {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}

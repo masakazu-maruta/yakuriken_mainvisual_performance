@@ -1,0 +1,27 @@
+import { RingSetting, UpSmallRingSettings } from "./ring.config";
+import { CalculateCurrentSetting } from "../globalAnimationSetting.config";
+
+export const upSmallRingAnimation = (id: string) => {
+  const element = document.getElementById(id) as HTMLElement;
+  if (!element) return;
+  window.addEventListener("DOMContentLoaded", () => {
+    init(element);
+    update(element);
+  });
+  window.addEventListener("resize", () => update(element));
+};
+
+function init(element: HTMLElement) {
+  element.setAttribute("color", "rgba(255,255,255,1)");
+}
+
+function update(element: HTMLElement) {
+  const setting: RingSetting = CalculateCurrentSetting(UpSmallRingSettings);
+  element.style.top = `${setting.top}vw`;
+  element.style.left = `${setting.left}vw`;
+  element.style.height = `${setting.height}px`;
+  element.style.width = `${setting.width}px`;
+  element.setAttribute("duration", `${setting.duration}`);
+  element.setAttribute("line-width", `${setting.lineWidth}`);
+  element.setAttribute("number", `${setting.numberRing}`);
+}

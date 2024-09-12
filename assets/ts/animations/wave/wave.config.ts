@@ -1,0 +1,208 @@
+import { BREAKPOINTS, BreakpointSettings, StyleSetting } from "../globalAnimationSetting.config";
+
+export interface WaveSetting extends StyleSetting {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  px1: number;
+  py1: number;
+  px2: number;
+  py2: number;
+  amplitude: number;
+  frequency: number;
+  shift: number;
+  speed: number;
+  lineWidth: number;
+}
+
+export const FrontWaveSettings: BreakpointSettings<WaveSetting> = {
+  [BREAKPOINTS.pc]: {
+    x1: -160,
+    y1: 160,
+    x2: 160,
+    y2: -160,
+    px1: 0,
+    py1: 96,
+    px2: 88,
+    py2: 0,
+    amplitude: 160,
+    frequency: 3,
+    shift: 0,
+    speed: 0.24,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.tablet]: {
+    x1: -100,
+    y1: 100,
+    x2: 100,
+    y2: -100,
+    px1: 0,
+    py1: 100,
+    px2: 100,
+    py2: 8,
+    amplitude: 100,
+    frequency: 2.5,
+    shift: 0,
+    speed: 0.24,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.mobile]: {
+    x1: -75,
+    y1: 75,
+    x2: 75,
+    y2: -75,
+    px1: 0,
+    py1: 88,
+    px2: 100,
+    py2: 16,
+    amplitude: 75,
+    frequency: 2.5,
+    shift: Math.PI / 2,
+    speed: 0.24,
+    lineWidth: 3,
+  },
+};
+
+export const BackWaveSettings: BreakpointSettings<WaveSetting> = {
+  [BREAKPOINTS.pc]: {
+    x1: -92,
+    y1: 92,
+    x2: 92,
+    y2: -92,
+    px1: 0,
+    py1: 92,
+    px2: 92,
+    py2: 0,
+    amplitude: 92,
+    frequency: 2.5,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 5,
+  },
+  [BREAKPOINTS.tablet]: {
+    x1: -42,
+    y1: 42,
+    x2: 42,
+    y2: -42,
+    px1: 0,
+    py1: 92,
+    px2: 100,
+    py2: 4,
+    amplitude: 42,
+    frequency: 3,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 5,
+  },
+  [BREAKPOINTS.mobile]: {
+    x1: -37,
+    y1: 37,
+    x2: 37,
+    y2: -37,
+    px1: 0,
+    py1: 84,
+    px2: 100,
+    py2: 24,
+    amplitude: 37,
+    frequency: 2.5,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 3,
+  },
+};
+export const DownFrontWaveSettings: BreakpointSettings<WaveSetting> = {
+  [BREAKPOINTS.pc]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 1080,
+    px1: 0,
+    py1: -8,
+    px2: 100,
+    py2: 0,
+    amplitude: 66,
+    frequency: 4,
+    shift: 0,
+    speed: 0.32,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.tablet]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 720,
+    px1: 0,
+    py1: -8,
+    px2: 100,
+    py2: 0,
+    amplitude: 66,
+    frequency: 4,
+    shift: 0,
+    speed: 0.32,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.mobile]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 560,
+    px1: 0,
+    py1: -8,
+    px2: 100,
+    py2: 0,
+    amplitude: 66,
+    frequency: 3.5,
+    shift: 0,
+    speed: 0.32,
+    lineWidth: 3,
+  },
+};
+
+export const DownBackWaveSettings: BreakpointSettings<WaveSetting> = {
+  [BREAKPOINTS.pc]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 1080,
+    px1: 0,
+    py1: -12,
+    px2: 100,
+    py2: 4,
+    amplitude: 66,
+    frequency: 4,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.tablet]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 720,
+    px1: 0,
+    py1: -11.2,
+    px2: 100,
+    py2: 3.2,
+    amplitude: 66,
+    frequency: 4,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 3,
+  },
+  [BREAKPOINTS.mobile]: {
+    x1: -66,
+    y1: 66,
+    x2: 66,
+    y2: 560,
+    px1: 0,
+    py1: -9.6,
+    px2: 100,
+    py2: 1.6,
+    amplitude: 66,
+    frequency: 3.5,
+    shift: 0,
+    speed: 0.56,
+    lineWidth: 3,
+  },
+};
